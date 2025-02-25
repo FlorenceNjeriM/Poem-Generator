@@ -17,6 +17,10 @@ let instructionsInput= document.querySelector("#instructions-input")
     let context= "You're an AI assistant who can help me generate an English poem in HTML format. Do not write anything like ``html on top please.Do NOT put a title to the poem just begin writing the poem immediately.Sign Florence at the bottom of the poem and the word Flore should be <strong>Florence</strong>. The poem should be four lines long.";
     let apiUrl= `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`
 
+let poemElement= document.querySelector("#poem");
+poemElement.classList.remove("hidden");
+poemElement.innerHTML= `<div class="blink_me"> ⏳ Generating a poem about ${instructionsInput.value}..</div>`
+
    console.log(`prompt:${prompt}`);
    console.log(`context:${context}`)
     axios.get(apiUrl).then(displayPoem);
